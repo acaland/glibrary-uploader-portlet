@@ -8,15 +8,10 @@ Ext.define('Uploader.view.MetadataEditor', {
     itemId: 'editor',
     defaults : {
     	xtype: 'textfield',
-    	columnWidth: 1/2,
-    	//labelStyle: 'padding-left:10px;',
+    	columnWidth: 0.5,
+    	labelStyle: 'padding-left:10px;',
     	labelWidth: 150,
-    	padding: 5,
-        border: 0,
-        style: {
-            borderColor: 'red',
-            borderStyle: 'solid'
-        }
+    	padding: 5
     },
     layout: 'column',
     autoScroll: true,
