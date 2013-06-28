@@ -14,7 +14,7 @@ Ext.define('Uploader.store.TypesTree', {
     proxy: {
         type: 'ajax',
         //url: '/django/mountTree/deroberto2/',
-        url: 'http://glibrary.ct.infn.it/django/mountTree/' + Uploader.config.repository,
+        url: 'http://glibrary.ct.infn.it/django/mountTree/' + Uploader.config.repository + '/',
         reader: {
             type: 'json'
         }
