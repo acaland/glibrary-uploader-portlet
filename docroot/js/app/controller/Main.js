@@ -1,5 +1,6 @@
 Ext.define('Uploader.controller.Main', {
 	extend: 'Ext.app.Controller',
+	requires: ['Uploader.config'],
 
 	init: function() {
 		var me = this;

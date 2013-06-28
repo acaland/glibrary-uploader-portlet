@@ -16,11 +16,11 @@ Ext.application({
     controllers: ['Main'],
     //requires: ['Uploader.view.Viewport'],
     //autoCreateViewport: true,
-    requires: ['Uploader.view.MainPanel'],
+    requires: ['Uploader.view.MainPanel', 'Uploader.config'],
     launch: function() {
     	//Ext.create('Uploader.view.Viewport');
 	Ext.create('Uploader.view.MainPanel');
-        console.log("loaded");
+        console.log("loaded: " + Uploader.config.repository);
         //this.getTypesTreeStore().load();
     },
     repository: 'demo'
