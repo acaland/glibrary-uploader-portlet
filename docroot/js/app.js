@@ -18,7 +18,6 @@ Ext.application({
     //autoCreateViewport: true,
     requires: ['Uploader.view.MainPanel'],
     launch: function() {
-	console.log("prova");
     	//Ext.create('Uploader.view.Viewport');
 	Ext.create('Uploader.view.MainPanel');
         console.log("loaded");
