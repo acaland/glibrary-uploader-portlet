@@ -9,6 +9,7 @@
 
 		<header-portlet-css>/css/main.css</header-portlet-css>
                 <header-portlet-css>/css/upload.css</header-portlet-css>
+                <header-portlet-css>/css/style.css</header-portlet-css>
 
                 <header-portal-javascript>/html/js/extjs4/ext-all-dev.js</header-portal-javascript>
                 <footer-portal-css>/html/js/extjs4/resources/css/ext-all-neptune.css</footer-portal-css>
