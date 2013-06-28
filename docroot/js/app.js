@@ -7,20 +7,20 @@ Ext.Loader.setPath({
 });
 
 
-
 Ext.application({
     name: 'Uploader',
     //liferay deployment
     appFolder: '/glibrary-uploader-portlet/js/app',
     //models: ['TypesTree'],
     stores: ['TypesTree'],
-    controllers: ['Main', 'TypesTree'],
+    controllers: ['Main'],
     //requires: ['Uploader.view.Viewport'],
     //autoCreateViewport: true,
     requires: ['Uploader.view.MainPanel'],
     launch: function() {
+	console.log("prova");
     	//Ext.create('Uploader.view.Viewport');
-        Ext.create('Uploader.view.MainPanel');
+	Ext.create('Uploader.view.MainPanel');
         console.log("loaded");
         //this.getTypesTreeStore().load();
     },

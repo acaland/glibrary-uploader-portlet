@@ -2,7 +2,6 @@ Ext.define('Uploader.view.Viewport', {
     extend: 'Ext.container.Viewport',
     requires: [
     	'Uploader.view.TypesTree',
-    	'Uploader.view.FilesList',
     	'Uploader.view.MetadataEditor',
         'Ext.ux.upload.Panel',
         'Ext.ux.upload.uploader.ExtJsUploader'

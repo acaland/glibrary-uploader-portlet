@@ -39,9 +39,4 @@ Ext.define('Uploader.controller.TypesTree', {
 
         });
     }
-
-
-
-
-
 });
