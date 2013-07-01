@@ -32,7 +32,7 @@ Ext.define('Uploader.controller.Main', {
 		//var root = 'http://glibrary.ct.infn.it/dm/';
 		// liferay deployment
 		var root = 'https://' + window.location.host ;
-		var link = root + '/api/' + vo + '/' + se + path +  
+		var link = root + '/dm/' + vo + '/' + se + path +  
 			record.data.filename.replace(/ /g, "_"); 
 		// via gLibrary DJANGO APIs
 		//var link = root + '/glibrary/download/' + se + path + 
