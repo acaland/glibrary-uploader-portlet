@@ -81,14 +81,14 @@ Ext.define('Ext.ux.upload.uploader.ExtJsUploader', {
 
     generateURL: function(item, _callback) {
 
-        var vo = 'vo.indicate-project.eu';
+        var vo = 'vo.dch-rp.eu';
         //console.log("sono in generateURL");
         //console.log(item.getFileApiObject().name);
         console.log(item.name);
         var filename = item.getFileApiObject().name.replace(/ /g, "_");
         console.log(filename);
-        var se = 'infn-se-03.ct.pi2s2.it';
-        var se_path = '/dpm/ct.pi2s2.it/home/vo.indicate-project.eu/glibrary'; 
+        var se = 'prod-se-03.ct.infn.it';
+        var se_path = '/dpm/ct.infn.it/home/vo.dch-rp.eu/test/'; 
 
         var url = '/dm/put/' + vo +'/' + filename + '/' + se + se_path;
 

@@ -1,6 +1,6 @@
 /**
  * Uploader implementation - with the Connection object in ExtJS 4
- * 
+ *
  */
 Ext.define('Ext.ux.upload.uploader.ExtJsUploader', {
     extend : 'Ext.ux.upload.uploader.AbstractXhrUploader',
@@ -12,14 +12,14 @@ Ext.define('Ext.ux.upload.uploader.ExtJsUploader', {
     config : {
         /**
          * @cfg {String} [method='PUT']
-         * 
+         *
          * The HTTP method to be used.
          */
         method : 'PUT',
 
         /**
          * @cfg {Ext.data.Connection}
-         * 
+         *
          * If set, this connection object will be used when uploading files.
          */
         connection : null
@@ -28,16 +28,16 @@ Ext.define('Ext.ux.upload.uploader.ExtJsUploader', {
     /**
      * @property
      * @private
-     * 
+     *
      * The connection object.
      */
     conn : null,
 
     /**
      * @private
-     * 
+     *
      * Initializes and returns the connection object.
-     * 
+     *
      * @return {Ext.ux.upload.data.Connection}
      */
     initConnection : function() {
@@ -81,23 +81,23 @@ Ext.define('Ext.ux.upload.uploader.ExtJsUploader', {
 
     generateURL: function(item, _callback) {
 
-        var vo = 'vo.indicate-project.eu';
+        var vo = 'vo.dch-rp.eu';
         //console.log("sono in generateURL");
         //console.log(item.getFileApiObject().name);
         console.log(item.name);
         var filename = item.getFileApiObject().name.replace(/ /g, "_");
         console.log(filename);
-        var se = 'infn-se-03.ct.pi2s2.it';
-        var se_path = '/dpm/ct.pi2s2.it/home/vo.indicate-project.eu/glibrary'; 
+        var se = 'prod-se-03.ct.infn.it';
+        var se_path = '/dpm/ct.infn.it/home/vo.dch-rp.eu/test';
 
         //var url = '/dm/put/' + vo +'/' + filename + '/' + se + se_path;
-        var url = 'http://glibrary.ct.infn.it/dm/put/' + vo +'/' + filename + '/' + se + se_path;
+        var url = '/dm/put/' + vo +'/' + filename + '/' + se + se_path;
 
         Ext.Ajax.request({
             url: url,
             scope : this,
             success: function(response){
-                
+
                 // process server response here
                 var info = {
                     success : false,
@@ -108,7 +108,7 @@ Ext.define('Ext.ux.upload.uploader.ExtJsUploader', {
                 if (response.responseText) {
                     var responseJson = Ext.decode(response.responseText);
                     if (responseJson && responseJson.redirect) {
-                        
+
                         var url = responseJson.redirect;
                         console.log(url);
                         this.url = url;
@@ -123,7 +123,7 @@ Ext.define('Ext.ux.upload.uploader.ExtJsUploader', {
                         console.log(this);
                         this.fireEvent('uploadfailure', item, info);
                     }
-                
+
                 }
             }
         });
@@ -134,7 +134,7 @@ Ext.define('Ext.ux.upload.uploader.ExtJsUploader', {
 
     /**
      * Implements {@link Ext.ux.upload.uploader.AbstractUploader#uploadItem}
-     * 
+     *
      * @param {Ext.ux.upload.Item} item
      */
     uploadItem : function(item) {
@@ -178,7 +178,7 @@ Ext.define('Ext.ux.upload.uploader.ExtJsUploader', {
     abortUpload : function() {
         if (this.conn) {
         	/*
-        	 * If we don't suspend the events, the connection abortion will cause a failure event. 
+        	 * If we don't suspend the events, the connection abortion will cause a failure event.
         	 */
         	this.suspendEvents();
             this.conn.abort();

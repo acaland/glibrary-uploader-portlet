@@ -15,7 +15,7 @@ Ext.define('Uploader.controller.Main', {
 		});
 
 		console.log('Main Controller loaded');
-		
+
 	},
 
 	fileSelected: function(grid,record,item,index,event,ops) {
@@ -25,18 +25,18 @@ Ext.define('Uploader.controller.Main', {
 		//console.log(record.data);
 
 		var downloadLink = Ext.ComponentQuery.query('#downloadLink')[0];
-		var vo = 'vo.indicate-project.eu';
-		var se = 'infn-se-03.ct.pi2s2.it';
-		var path = '/dpm/ct.pi2s2.it/home/vo.indicate-project.eu/glibrary/';
+		var vo = 'vo.dch-rp.eu';
+		var se = 'prod-se-03.ct.infn.it';
+		var path = '/dpm/ct.infn.it/home/vo.dch-rp.eu/test/';
 		// glibary deployment
 		//var root = 'http://glibrary.ct.infn.it/dm/';
 		// liferay deployment
 		var root = 'https://' + window.location.host ;
-		var link = root + '/dm/' + vo + '/' + se + path +  
-			record.data.filename.replace(/ /g, "_"); 
+		var link = root + '/dm/' + vo + '/' + se + path +
+			record.data.filename.replace(/ /g, "_");
 		// via gLibrary DJANGO APIs
-		//var link = root + '/glibrary/download/' + se + path + 
-		//	record.data.filename.replace(/ /g, "_") + '/'; 
+		//var link = root + '/glibrary/download/' + se + path +
+		//	record.data.filename.replace(/ /g, "_") + '/';
 		downloadLink.update('<a href="' + link + '" target="_blank">Direct Download Link</a>');
 		downloadLink.show();
 
@@ -54,7 +54,7 @@ Ext.define('Uploader.controller.Main', {
 	loadMetadata: function(typepath, record) {
 
 		Ext.Ajax.request({
-			url: 'http://glibrary.ct.infn.it/django/metadata' + typepath + '/',
+			url: '/glibrary/metadata' + typepath + '/',
 			method: 'GET',
 			success: function(response) {
 				var data = Ext.decode( response.responseText );
@@ -83,10 +83,10 @@ Ext.define('Uploader.controller.Main', {
 		var fname = form.getValues().FileName.replace(/ /g, "_");
 		metadata.FileName = fname;
 		metadata.Size = form.getValues().Size;
-		metadata.Replica = "https://infn-se-03.ct.pi2s2.it/dpm/ct.pi2s2.it/home/vo.indicate-project.eu/glibrary/" + fname;
+		metadata.Replica = "https://prod-se-03.ct.infn.it/dpm/ct.infn.it/home/vo.dch-rp.eu/test/" + fname;
 		console.log(metadata);
 		Ext.Ajax.request({
-			url: 'http://glibrary.ct.infn.it/django/saveMetadata' + selectedType.data.path + '/',
+			url: '/glibrary/saveMetadata' + selectedType.data.path + '/',
 			params: metadata,
 			success: function(response) {
 				Ext.ComponentQuery.query('metadataeditor')[0].removeAll();
@@ -97,6 +97,6 @@ Ext.define('Uploader.controller.Main', {
 				console.log("error");
 				console.log(response);
 			}
-		}); 
+		});
 	}
 });
